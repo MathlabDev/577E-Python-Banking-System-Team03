@@ -1,0 +1,7 @@
+_pycache_/
+*.pyc
+data/*.json
+data/*.tmp
+.vscode/
+.idea/
+tempCodeRunnerFile.py
