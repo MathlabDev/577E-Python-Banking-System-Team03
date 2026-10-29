@@ -16,7 +16,7 @@ def create_data_directory():
 def save_accounts(accounts_data):
     create_data_directory()
     file_path = os.path.join(DATA_DIR, "accounts.json")
-    with open(file_path,"w") as file:
+    with open(file_path,"w",encoding="utf-8") as file:
         json.dump(accounts_data,file,indent=2)
 
 #! tries loading user accounts from accounts.json, if accounts.json doesn't exist creates demo user accounts
@@ -72,7 +72,7 @@ def load_accounts():
         return default_accounts
 
     try:
-        with open(file_path, "r") as file:
+        with open(file_path, "r",encoding="utf-8") as file:
             return json.load(file)
     except (json.JSONDecodeError, IOError):
         print("Error reading accounts file. Initializing empty/default state.")
@@ -83,7 +83,7 @@ def save_atm_cash(amount):
     create_data_directory()
 
     data = {"atm_cash": round(float(amount),2)}
-    with open(ATM_FILE,"w") as file:
+    with open(ATM_FILE,"w",encoding="utf-8") as file:
         json.dump(data,file,indent = 2)
 
 def load_atm_cash():
@@ -93,7 +93,7 @@ def load_atm_cash():
         save_atm_cash(INITIAL_ATM_CASH)
         return INITIAL_ATM_CASH
     try:
-        with open(ATM_FILE,"r") as file:
+        with open(ATM_FILE,"r",encoding="utf-8") as file:
             data = json.load(file)
             return float(data.get("atm_cash", INITIAL_ATM_CASH))
     except(json.JSONDecodeError, IOError):
