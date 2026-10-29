@@ -5,8 +5,13 @@ def input_validation(mebleg):
         return "Yalniz reqem daxil edin"
     else:
         if amount > 0:
-            return "Mebleg qebul olundu"
+            parts = mebleg.split(".") #! qepik hissesinin yoxlanilmasi
+            if len(parts) == 2 and len(parts[1]) > 2:
+                return "En cox 2 onluq isare olmalidir"
+            else:
+                return "Mebleg qebul olundu"
         else:
             return "Xeta: mebleg musbet olmalidir"
 mebleg=input("Meblegi daxil edin:")
 print(input_validation(mebleg))
+
