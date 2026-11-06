@@ -126,7 +126,7 @@ def load_atm_cash():
         raise ValueError("atm.json must have a dictionary inside it")
 
     if "atm_cash" not in data:
-        raise ValueError("atm.json doesnt have the atm_cash key")
+        raise ValueError("atm.json doesn't have the atm_cash key")
 
     try:
         amount = float(data["atm_cash"])
